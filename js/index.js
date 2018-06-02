@@ -41,7 +41,7 @@ function updateChart() {
 		  console.log(balance1);
           var chart = new CanvasJS.Chart("chartContainer", {
 title: { 
-			text: "Worldwide Smartphone sales by brand - 2012",
+			text: "Charities",
 			fontSize: 24
 		}, 
 		axisY: { 
