@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <title>MetaMask Pay Button Example</title>
+
+<style>
+.pay-button {
+  width: 304px;
+  height: 89px;
+  background-size: 100%;
+  background-image: url('https://metamask.github.io/TipButton/images/1_pay_mm_off.png');
+  cursor: pointer;
+}
+</style>
+  </head>
+
+  <body>
+    <h1>MetaMask Pay Button Example</h1>
+
+<input type="number" id="amount" min="0.01" max="10" step="0.05" placeholder="0.05">
+<button class="pay-button" onclick="donate()">Donate</button>
+  </body>
+
+<script>
+  
+  const amount = parseFloat(document.getElementById('amount').value);
+  
+var MY_ADDRESS = '0x2aceA0D6FC2f23874E3502E8bc62B5E5B922A7aa'
+var tipButton = document.querySelector('.pay-button')
+tipButton.addEventListener('click', function() {
+  if (typeof web3 === 'undefined') {
+    return renderMessage('<div>You need to install <a href=“https://metamask.io“>MetaMask </a> to use this feature.  <a href=“https://metmask.io“>https://metamask.io</a></div>')
+  }
+  var user_address = web3.eth.accounts[0]
+  web3.eth.sendTransaction({
+    to: MY_ADDRESS,
+    from: user_address,
+    value: web3.toWei(amount, 'ether'),
+  }, function (err, transactionHash) {
+    if (err) return renderMessage('There was a problem!')
+    renderMessage('Success, The transactionHash is ' + transactionHash)
+  })
+})
+function renderMessage (message) {
+  alert(message);
+}
+</script>
+
+</html>
