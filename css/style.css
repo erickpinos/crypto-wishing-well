@@ -18,17 +18,25 @@ div {	margin: 0; padding: 0;}
 	width:90%!important;
 }
 
-#pendingStatusContainer {
+#pendingStatus {
 	color: #ffffff;
-	height: 80px;
+	height: 120px;
 	font-size:20px;
 	font-weight: 800;
 }
 
-#container {
-  margin: 0px;
-  width: 100px;
+#pendingHeart {
   height: 100px;
+}
+
+.pay-button {
+	width: 152px;
+	height: 44.5px;
+	background-size: 100%;
+	background-image: url('https://metamask.github.io/TipButton/images/1_pay_mm_off.png');
+	cursor: pointer;
+	display: inline;
+	padding-bottom: 8px;
 }
 
 #wrapper {

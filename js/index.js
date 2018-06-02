@@ -38,44 +38,25 @@ function checkPending() {
 	var total = 0;
 	var results = [result1, result2, result3, result4]
 
-	// if (result1 != -1) {
-	// 	total=total+1;
-	// 	console.log(total)
-	// }
-
-	// if (result2 != -1) {
-	// 	total=total+1;
-	// 	console.log(total)
-	// }
-
-	// if (result3 != -1) {
-	// 	total=total+1;
-	// 	console.log(total)
-	// }
-
-	// if (result4 != -1) {
-	// 	total=total+1;
-	// 	console.log(total)
-	// }
-
     for (var i =0; i < results.length; i++) {
     	total += results[i]
     } 
-	console.log("total");
-	console.log(total);
-	if (total == 1) {
-		$('#pendingNothing').hide();
-		$('#pendingStatus').show();
-		document.getElementById("pendingMessage").innerHTML = total + "Ethereum Transaction Incoming!!!";		
-	} else if (total >= 2) {
-		$('#pendingNothing').hide();
-		$('#pendingStatus').show();
-		document.getElementById("pendingMessage").innerHTML = total + " Ethereum Transactions Incoming!!!";
-	} else {
-		$('#pendingNothing').show();
-		$('#pendingStatus').hide();
-	}
 
+//	console.log("total");
+//	console.log(total);
+
+	var pendingMessage = null;
+	if (total <= 0) {
+		pendingMessage = " Send some ETH to a charity below :)";
+		$('#pendingHeart').hide();
+	} else if (total == 1) {
+		pendingMessage = total + " Ethereum Transaction Incoming!!!";
+		$('#pendingHeart').show();
+	} else {
+		pendingMessage = total + " Ethereum Transactions Incoming!!!";		
+		$('#pendingHeart').show();
+	}
+	document.getElementById("pendingMessage").innerHTML = pendingMessage;
 }
 
 function checkPendingForAddress(address) {
@@ -98,8 +79,8 @@ function checkPendingForAddress(address) {
     		} else {
     			result = result.length/2;
     		}
-			console.log("result");
-			console.log(result);
+//			console.log("result");
+//			console.log(result);
 //            console.log(result);
     	}
 	});
@@ -138,6 +119,8 @@ function updateChart() {
  		  var ether4 = balance4/1000000000000000000;
 
  		  var sum = ether1 + ether2 + ether3 + ether4;
+
+ 		  document.getElementById("total_ETH").innerHTML = sum;
 
  		  var percentage1 = ether1/sum*100;
  		  var percentage2 = ether2/sum*100;
