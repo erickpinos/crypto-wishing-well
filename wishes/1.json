@@ -1,0 +1,10 @@
+{
+  "name": "Wish1",
+  "image": "https://erickpinos.github.io/wishingwell/image/star.png", 
+  "description": "Thank you for donating and making a wish to Charity.", 
+  "attributes": {
+    "donation": 3,
+    "chariy": "Water.org", 
+  },
+  "background_color": "00FFFF"
+}
