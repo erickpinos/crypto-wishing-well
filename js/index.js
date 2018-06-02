@@ -2,25 +2,11 @@ var balance1 = 0;
 
 console.log(balance1);
 
-/*
-function getResult(){
-		return $.get("https://api.etherscan.io/api?module=account&action=balance&address=0xb215cfebb90d91b1d2f499843800d3105b1366fc&tag=latest&apikey=9R1SBAHHRX5138FBZWPWP9W8JRFRFV73AJ", function(data, status){
-//			alert("Ethereum Balance: " + data.result);
-	        document.getElementById("address1").innerHTML = data.result;
-	        balance1 = data.result;
-//	        console.log(balance1);
-			console.log(data);
-			return data;
-	   	});
-
-	};
-
-*/
-
-function getResult(address)
-{
-     var result = null;
-     var scriptUrl = "https://rinkeby.etherscan.io/api?module=account&action=balance&address=" + address + "&tag=latest&apikey=9R1SBAHHRX5138FBZWPWP9W8JRFRFV73AJ";
+function getResult(address) {
+	var apikey = "9R1SBAHHRX5138FBZWPWP9W8JRFRFV73AJ"; 
+	var ethnetwork = "rinkeby";
+	var result = null;
+    var scriptUrl = "https://" + ethnetwork + ".etherscan.io/api?module=account&action=balance&address=" + address + "&tag=latest&apikey="+ apikey;
      $.ajax({
         url: scriptUrl,
         type: 'get',
@@ -35,8 +21,9 @@ function getResult(address)
      return result;
 }
 
-function updateChart() {
 
+//function updateChart() {
+window.onload = function() {
 		var address1 = "0xc669d3A20F921713F16Bce59D4Ac0241047EC6b2";
 		var address2 = "0xf73d1b277786819f38C5a7f6e88E9e4c249Fa1C6";
 		var address3 = "0x9E8cfEe0D8578E85Ab5b48f4239830213CDa983a";
@@ -48,15 +35,15 @@ function updateChart() {
 		  var balance4 = getResult(address4);
 
 		  console.log("start");
-		  console.log("balance1")
+		  console.log("balance1");
 		  console.log(balance1);
-		  console.log("balance2")
+		  console.log("balance2");
 		  console.log(balance2);
-		  console.log("balance3")
+		  console.log("balance3");
 		  console.log(balance3);
-		  console.log("balance4")
+		  console.log("balance4");
 		  console.log(balance4);
- 		  console.log("end")
+ 		  console.log("end");
 
  		  var ether1 = balance1/1000000000000000000;
  		  var ether2 = balance2/1000000000000000000;
@@ -81,10 +68,7 @@ function updateChart() {
 
           var chart = new CanvasJS.Chart("chartContainer", {
 		colorSet:  "greenShades",
-		title: { 
-			text: "Charities",
-			fontSize: 24
-		}, 
+    	backgroundColor: "#D8D6CB",
 		axisY: { 
 			title: "Products in %" 
 		}, 
@@ -99,10 +83,10 @@ function updateChart() {
 			toolTipContent: "{label} <br/> {y} %", 
 			indexLabel: "{y} %", 
 			dataPoints: [ 
-				{ label: "Water.org",  y: percentage1, legendText: "Water.org" + ether1 }, 
-				{ label: "UNICEF",    y: percentage2, legendText: "UNICEF" + ether2  }, 
-				{ label: "World Wildlife Fund",   y: percentage3,  legendText: "World Wildlife Fund" + ether3 }, 
-				{ label: "Black Girls Code",       y: percentage4,  legendText: "Black Girls Code" + ether4 }, 
+				{ label: "Water.org 0xc6",  y: percentage1, legendText: "Water.org " + ether1 }, 
+				{ label: "UNICEF 0xf7",    y: percentage2, legendText: "UNICEF " + ether2  }, 
+				{ label: "World Wildlife Fund 0x9E",   y: percentage3,  legendText: "World Wildlife Fund " + ether3 }, 
+				{ label: "Black Girls Code 0x2e",       y: percentage4,  legendText: "Black Girls Code " + ether4 }, 
 			] 
 		} 
 		]
@@ -110,5 +94,3 @@ function updateChart() {
 
           chart.render();
       }
-
-/* CSS Pie Chart Code by Sean @ http://www.ohsean.net */
