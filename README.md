@@ -32,3 +32,7 @@ which is based off of openzeppelin
 Sample Token JSON File
 
 https://gateway.ipfs.io/ipfs/QmauSQRXPFM9Jr97qv5GRFCMgk6tRutfDpyDvUBxJhwczy
+
+
+# Etherscan
+https://rinkeby.etherscan.io/tx/0xbf002b898981d6bb473323959988c05d5600446c2c83ae7d8200aba23d7925cf
