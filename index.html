@@ -34,6 +34,17 @@
 	</div>
 	</div>
 
+	<style>
+
+.pay-button {
+  width: 152px;
+  height: 44.5px;
+  background-size: 100%;
+  background-image: url('https://metamask.github.io/TipButton/images/1_pay_mm_off.png');
+  cursor: pointer;
+}
+</style>
+
 <table style="width:100%" id="table_title">
   <tr>
     <th style="width:25%">Water.org</th>
@@ -47,7 +58,67 @@
 	<th><img src="image/address3_qrcode.png" alt="Address 3" height="100" width="100"></th>
 	<th><img src="image/address4_qrcode.png" alt="Address 4" height="100" width="100"></th>
   </tr>
+
+  <tr>
+  	<th><input style="line-height: 20px; font-size: 20px; padding-bottom:-5px;" type="number" id="amount1" min="0.01" max="10" step="0.05" placeholder="0.05"></th>
+  	<th><input style="line-height: 20px; font-size: 20px; padding-bottom:-5px;" type="number" id="amount2" min="0.01" max="10" step="0.05" placeholder="0.05"></th>
+  	<th><input style="line-height: 20px; font-size: 20px; padding-bottom:-5px;" type="number" id="amount3" min="0.01" max="10" step="0.05" placeholder="0.05"></th>
+  	<th><input style="line-height: 20px; font-size: 20px; padding-bottom:-5px;" type="number" id="amount4" min="0.01" max="10" step="0.05" placeholder="0.05"></th>
+  </tr>
+	<tr>  	    
+	<th><button style="display:inline; padding-bottom: 8px;" class="pay-button" onclick="donate("0xc669d3A20F921713F16Bce59D4Ac0241047EC6b2","amount2")"></button>	
+</th>
+   
+	<th><button style="display:inline; padding-bottom: 8px;" class="pay-button" onclick="donate("0xf73d1b277786819f38C5a7f6e88E9e4c249Fa1C6","amount2")"></button>	
+</th>
+    
+	<th><button style="display:inline; padding-bottom: 8px;" class="pay-button" onclick="donate("0x9E8cfEe0D8578E85Ab5b48f4239830213CDa983a","amount3")"></button>	
+</th>
+    
+	<th><button style="display:inline; padding-bottom: 8px;" class="pay-button" onclick="donate("0x2ed10bDd772B53E1f6be46Fbe0998327753FE158","amount4")"></button>	
+	</th>
+</tr>
+
 </table>
+    <center>
+</center>
+
 </body>
+		<script>
+  function donate(wallet,amountID) {
+    if (typeof web3 !== 'object') {
+      alert('MetaMask not loaded, try later');
+      return;
+    }
+  
+  const web4 = new Web3(web3.currentProvider);
+  const amount = parseFloat(document.getElementById(amountID).value);
+    
+    if (isNaN(amount) || amount < 0) {
+      alert('Please, enter valid donation size!');
+      return;
+    }
+    
+   if (!web4.eth.accounts[0]) {
+     alert('Please, login to MetaMask first');
+     return;
+   }
+    
+  const donationWallet = document.getElementById(wallet).value;
+  console.log(donationWallet);
+  const transactionObject = {
+    from: web4.eth.accounts[0],
+    to: donationWallet,
+    value: web4.toWei(amount),
+  }
+  console.log(transactionObject);
+  web4.eth.sendTransaction(transactionObject, function(){
+    alert('Success!');
+  })
+  
+}
+  
+</script>
+
 
 </html>
