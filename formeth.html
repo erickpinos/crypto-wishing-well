@@ -1,0 +1,95 @@
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+
+    <title>Charity Fundraising</title>
+
+<style>
+
+.pay-button {
+  width: 152px;
+  height: 44.5px;
+  background-size: 100%;
+  background-image: url('https://metamask.github.io/TipButton/images/1_pay_mm_off.png');
+  cursor: pointer;
+}
+</style>
+
+</head>
+<body style="margin-top: 50px">
+
+	<div id="myform">
+		<center>
+  <form>
+
+    <input style="line-height: 20px; width: 25vw; font-size: 20px;" id="name" type="text" placeholder="Charity Name">
+    <input style="line-height: 20px; width: 25vw; font-size: 20px;" id="wallet" type="text" placeholder="Ethereum Wallet address">
+  </form>
+  <button style="font-size: 20px;" id="submit" onclick="build(); naming();"> Submit </button>
+  </center>
+</div>
+
+
+	<div style="display: none;" id="donateform">
+    <center>
+    <h1 style="font-family: 'Quicksand', sans-serif;">
+    	Donate to <div style="display:inline" id="charityname"></div> </h1>
+    <input style="line-height: 35px; font-size: 35px; padding-bottom:-5px;" type="number" id="amount" min="0.01" max="10" step="0.05" placeholder="0.05">
+<button style="display:inline; padding-bottom: 8px;" class="pay-button" onclick="donate();"></button>
+	
+</center>
+</div>
+  </body>
+
+    <script>
+	function build() {
+		var  x = document.getElementById("donateform");
+		var  y = document.getElementById("myform");
+		if (x.style.display === "none") {
+		x.style.display = "block";
+		y.style.display = "none";
+	}
+}
+function naming() {  
+		var welcome = document.getElementById("name").value;
+		console.log(welcome);
+		document.getElementById('charityname').innerHTML = welcome;
+		}
+		</script>
+
+<script>
+  function donate() {
+    if (typeof web3 !== 'object') {
+      alert('MetaMask not loaded, try later');
+      return;
+    }
+  
+  const web4 = new Web3(web3.currentProvider);
+  const amount = parseFloat(document.getElementById('amount').value);
+    
+    if (isNaN(amount) || amount < 0) {
+      alert('Please, enter valid donation size!');
+      return;
+    }
+    
+   if (!web4.eth.accounts[0]) {
+     alert('Please, login to MetaMask first');
+     return;
+   }
+    
+  const donationWallet = document.getElementById("wallet").value;
+  console.log(donationWallet);
+  const transactionObject = {
+    from: web4.eth.accounts[0],
+    to: donationWallet,
+    value: web4.toWei(amount),
+  }
+  console.log(transactionObject);
+  web4.eth.sendTransaction(transactionObject, function(){
+    alert('ok');
+  })
+  
+}
+  
+</script>
+
+</html>
