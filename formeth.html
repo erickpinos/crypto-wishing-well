@@ -1,10 +1,9 @@
-  <head>
+<head>
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 
     <title>Charity Fundraising</title>
 
 <style>
-
 .pay-button {
   width: 152px;
   height: 44.5px;
@@ -24,7 +23,7 @@
     <input style="line-height: 20px; width: 25vw; font-size: 20px;" id="name" type="text" placeholder="Charity Name">
     <input style="line-height: 20px; width: 25vw; font-size: 20px;" id="wallet" type="text" placeholder="Ethereum Wallet address">
   </form>
-  <button style="font-size: 20px;" id="submit" onclick="build(); naming();"> Submit </button>
+  <button style="font-size: 20px;" id="submit" onclick="build(); walletqr(); naming();"> Submit </button>
   </center>
 </div>
 
@@ -35,13 +34,24 @@
     	Donate to <div style="display:inline" id="charityname"></div> </h1>
     <input style="line-height: 35px; font-size: 35px; padding-bottom:-5px;" type="number" id="amount" min="0.01" max="10" step="0.05" placeholder="0.05">
 <button style="display:inline; padding-bottom: 8px;" class="pay-button" onclick="donate();"></button>
-	   <script>
-		   var link = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + document.getElementById("wallet").value
-	    </script>
-	   <img src=link />
+	<br>
+  <br>
+  <br>
+	   <img id="qr" src="none.png" alt="Invalid QR"/>
 </center>
 </div>
   </body>
+        <script>
+      function walletqr() {
+        var foo = document.getElementById("wallet").value;
+       var link = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=";
+       console.log(foo);
+       console.log("HI!");
+       console.log(link);
+       document.getElementById("qr").setAttribute("src",link + foo);
+      }
+
+      </script>
 
     <script>
 	function build() {
@@ -54,7 +64,7 @@
 }
 function naming() {  
 		var welcome = document.getElementById("name").value;
-		console.log(welcome);
+		// console.log(welcome);
 		document.getElementById('charityname').innerHTML = welcome;
 		}
 		</script>
@@ -80,7 +90,7 @@ function naming() {
    }
     
   const donationWallet = document.getElementById("wallet").value;
-  console.log(donationWallet);
+  // console.log(donationWallet);
   const transactionObject = {
     from: web4.eth.accounts[0],
     to: donationWallet,
