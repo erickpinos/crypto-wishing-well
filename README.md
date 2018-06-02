@@ -22,3 +22,6 @@ Address 4:
 
 
 # Heart Animation from https://dribbble.com/shots/3159519-Heart-animation
+
+# ERC721 CryptoPuffs Example from OpenSea
+https://github.com/ProjectOpenSea/cryptopuff-contracts
