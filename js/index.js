@@ -1,6 +1,6 @@
 var balance1 = 0;
 
-console.log(balance1);
+//console.log(balance1);
 
 function getResult(address) {
 	var apikey = "9R1SBAHHRX5138FBZWPWP9W8JRFRFV73AJ"; 
@@ -14,16 +14,38 @@ function getResult(address) {
         async: false,
         success: function(data) {
             result = data.result;
-            console.log("data");
-            console.log(data.result);
+            // console.log("data");
+            // console.log(data.result);
         } 
      });
      return result;
 }
 
+function checkPending(address) {
+	var apikey = "9R1SBAHHRX5138FBZWPWP9W8JRFRFV73AJ"; 
+	var ethnetwork = "rinkeby";
+	var result = null;
+    var scriptUrl = "https://" + ethnetwork + ".etherscan.io/address/" + address;
+    $.ajax({
+    	url: scriptUrl,
+        type: 'get',
+        dataType: 'html',
+        async: false,
+        success: function(data) {
+// 	    	console.log(data);
+//  		result = data.getElementsbyClassName("i");
+			var result = data.indexOf("pending");
+            console.log(result);
+			if (result == -1) { $('#pendingStatus').hide(); }
+			else $('#pendingStatus').show();
+    	}
+	});
+    return result;
 
-//function updateChart() {
-window.onload = function() {
+}
+
+function updateChart() {
+//window.onload = function() {
 		var address1 = "0xc669d3A20F921713F16Bce59D4Ac0241047EC6b2";
 		var address2 = "0xf73d1b277786819f38C5a7f6e88E9e4c249Fa1C6";
 		var address3 = "0x9E8cfEe0D8578E85Ab5b48f4239830213CDa983a";
@@ -34,16 +56,16 @@ window.onload = function() {
 		  var balance3 = getResult(address3);
 		  var balance4 = getResult(address4);
 
-		  console.log("start");
-		  console.log("balance1");
-		  console.log(balance1);
-		  console.log("balance2");
-		  console.log(balance2);
-		  console.log("balance3");
-		  console.log(balance3);
-		  console.log("balance4");
-		  console.log(balance4);
- 		  console.log("end");
+		  // console.log("start");
+		  // console.log("balance1");
+		  // console.log(balance1);
+		  // console.log("balance2");
+		  // console.log(balance2);
+		  // console.log("balance3");
+		  // console.log(balance3);
+		  // console.log("balance4");
+		  // console.log(balance4);
+ 		 //  console.log("end");
 
  		  var ether1 = balance1/1000000000000000000;
  		  var ether2 = balance2/1000000000000000000;
@@ -93,4 +115,16 @@ window.onload = function() {
           });
 
           chart.render();
-      }
+}
+
+
+$(document).ready(
+ function() {
+	updateChart();
+	checkPending("0xc669d3A20F921713F16Bce59D4Ac0241047EC6b2");
+ setInterval(function() {
+	updateChart();	
+	checkPending("0xc669d3A20F921713F16Bce59D4Ac0241047EC6b2");
+//  $('#sample').text('Test');
+ }, 10000);  //Delay here = 5 seconds 
+});
