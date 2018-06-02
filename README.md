@@ -26,3 +26,9 @@ Address 4:
 # ERC721 CryptoPuffs Example from OpenSea
 https://github.com/ProjectOpenSea/cryptopuff-contracts
 which is based off of openzeppelin
+
+
+# IPFS
+Sample Token JSON File
+
+https://gateway.ipfs.io/ipfs/QmauSQRXPFM9Jr97qv5GRFCMgk6tRutfDpyDvUBxJhwczy
