@@ -1,17 +1,34 @@
 html, body {
 	margin: 0 auto;
 	padding: 0 auto;
-	font-family: "Times New Roman", arial, Verdana;
-	color: #817a53;
-	background: #d8d6cb;
+	font-family: Quicksand, sans-serif;
+	color: #ffffff;
+	background: #FF6C61;
 }
 
 p { margin: 0; padding: 4px; }
 
 div {	margin: 0; padding: 0;}
 
-#pendingStatus {
-	color: #FF0000;
+#chartContainer {
+	margin: 0px;
+    border-color: #E7E7E7;
+    padding: 10px 0px 0px 0px;
+	box-shadow: 0 10px 10px 0 rgba(0,0,0,0.5);
+	width:90%!important;
+}
+
+#pendingStatusContainer {
+	color: #ffffff;
+	height: 80px;
+	font-size:20px;
+	font-weight: 800;
+}
+
+#container {
+  margin: 0px;
+  width: 100px;
+  height: 100px;
 }
 
 #wrapper {
@@ -28,18 +45,23 @@ div {	margin: 0; padding: 0;}
 #header {
 	text-align: center;
 	margin: 0 0 30px 0;
-	padding: 15px 0 15px 0;
+	padding: 15px 0 0px 0;
 }
 
 #txt_title {
-	color: #3d381b;
+	color: #ffffff;
 	font-size: 34px;
 	text-align:center;
+    padding: 30px 0px 10px 0px;
 	text-shadow: 0 -1px 2px rgba(255,255,255,.5);
 }
 
 #txt_subtitle {
 	font-size: 17px;
 	text-align: center;
+}
+
+#table_title {
+	    color: black;
 }
 /* Header end */

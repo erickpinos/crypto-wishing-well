@@ -10,20 +10,31 @@
 	<script type="text/javascript" src="js/canvasjs.min.js"></script>
 	<script src="js/index.js"></script>
 	<link rel="stylesheet" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 </head>
 
 <body>
 	<div id="wrapper">
 	<div id="header">
-		<hr><hr>
 		<p id="txt_title">Wishing Well</p>
-		<div id="chartContainer" style="width: 100%; height: 300px"></div>  
+	<center>		<div id="chartContainer" style="width: 100%; height: 300px"></div>  </center>
 	</div>
-	<div id="pendingStatus"><center>Ethereum Transaction Incoming!!!</center></div>
+	<div id="pendingStatusContainer">
+	<div id="pendingStatus">
+		<center><div id="pendingMessage">Ethereum Transaction Incoming!!!</div></center>
+		<center>
+		<div id="container">
+		<img src="image/heart_loading.gif" height=60 width=80>
+		</div>
+		</center>
+	</div>
+	<div id="pendingNothing">
+		<center>Send some ETH to a charity below</center>
+		<center>and see what happens :)</center>
+	</div>
+	</div>
 
-<hr>
-
-<table style="width:100%">
+<table style="width:100%" id="table_title">
   <tr>
     <th style="width:25%">Water.org</th>
     <th style="width:25%">UNICEF</th> 
@@ -31,16 +42,10 @@
     <th style="width:25%">Black Girls Code</th>
   </tr>
   <tr>
-  	<th>0xc6</th>
-  	<th>0xf7</th>
-  	<th>0x9E</th>
-  	<th>0x2e</th>
-  </tr>
-  <tr>
-	<th><img src="image/address1_qrcode.png" alt="Address 1" height="100" width="100"></th>
-	<th><img src="image/address2_qrcode.png" alt="Address 2" height="100" width="100"></th>
-	<th><img src="image/address3_qrcode.png" alt="Address 3" height="100" width="100"></th>
-	<th><img src="image/address4_qrcode.png" alt="Address 4" height="100" width="100"></th>
+	<th><img src="image/address1_qrcode.png" alt="Address 1" height="80" width="80"></th>
+	<th><img src="image/address2_qrcode.png" alt="Address 2" height="80" width="80"></th>
+	<th><img src="image/address3_qrcode.png" alt="Address 3" height="80" width="80"></th>
+	<th><img src="image/address4_qrcode.png" alt="Address 4" height="80" width="80"></th>
   </tr>
 </table>
 </body>
