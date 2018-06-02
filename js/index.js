@@ -34,38 +34,43 @@ function checkPending() {
 	result3 = checkPendingForAddress(address3);
 	result4 = checkPendingForAddress(address4);
 
-	console.log("totals");
 
 	var total = 0;
+	var results = [result1, result2, result3, result4]
 
-	if (result1 != -1) {
-		total=total+1;
-		console.log(total)
-	}
+	// if (result1 != -1) {
+	// 	total=total+1;
+	// 	console.log(total)
+	// }
 
-	if (result2 != -1) {
-		total=total+1;
-		console.log(total)
-	}
+	// if (result2 != -1) {
+	// 	total=total+1;
+	// 	console.log(total)
+	// }
 
-	if (result3 != -1) {
-		total=total+1;
-		console.log(total)
-	}
+	// if (result3 != -1) {
+	// 	total=total+1;
+	// 	console.log(total)
+	// }
 
-	if (result4 != -1) {
-		total=total+1;
-		console.log(total)
-	}
+	// if (result4 != -1) {
+	// 	total=total+1;
+	// 	console.log(total)
+	// }
 
+    for (var i =0; i < results.length; i++) {
+    	total += results[i]
+    } 
+	console.log("total");
+	console.log(total);
 	if (total == 1) {
 		$('#pendingNothing').hide();
 		$('#pendingStatus').show();
-		document.getElementById("pendingMessage").innerHTML = "Ethereum Transaction Incoming!!!";		
+		document.getElementById("pendingMessage").innerHTML = total + "Ethereum Transaction Incoming!!!";		
 	} else if (total >= 2) {
 		$('#pendingNothing').hide();
 		$('#pendingStatus').show();
-		document.getElementById("pendingMessage").innerHTML = "Multiple Ethereum Transactions Incoming!!!";
+		document.getElementById("pendingMessage").innerHTML = total + " Ethereum Transactions Incoming!!!";
 	} else {
 		$('#pendingNothing').show();
 		$('#pendingStatus').hide();
@@ -85,7 +90,16 @@ function checkPendingForAddress(address) {
         success: function(data) {
 // 	    	console.log(data);
 //  		result = data.getElementsbyClassName("i");
-			result = data.indexOf("pending");
+            var regexp = "(pending)"
+			result = String(data).match(regexp);
+
+			if (result == null) {
+				result = 0;
+    		} else {
+    			result = result.length/2;
+    		}
+			console.log("result");
+			console.log(result);
 //            console.log(result);
     	}
 	});
