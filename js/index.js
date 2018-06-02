@@ -1,4 +1,5 @@
 var balance1 = 0;
+var lastDonationCharity = null;
 
 //console.log(balance1);
 
@@ -18,10 +19,49 @@ function getResult(address) {
             // console.log(data.result);
         } 
      });
-//     console.log("Get Result");
-//     console.log(result);
+    // console.log("Get Result");
+    // console.log(result);
      return result;
 }
+
+function getTransactions(address) {
+	console.log("running getTransactions");
+	var apikey = "9R1SBAHHRX5138FBZWPWP9W8JRFRFV73AJ"; 
+	var ethnetwork = "rinkeby";
+	var scriptUrl = "https://" + ethnetwork + ".etherscan.io/api?module=account&action=txlist&address=" + address + "&startblock=0&endblock=99999999&sort=asc&apikey=" + apikey;
+    $.ajax({
+    	url: scriptUrl,
+    	type: 'get',
+    	dataType: 'json',
+    	async: false,
+    	success: function(data) {
+        	result = data.result;
+        	// console.log("data");
+        	// console.log(data.result);
+		} 
+    });
+	// console.log("Result");
+	// console.log(result);
+	// console.log("Results 1");
+	// console.log(result[0]);
+	// console.log(result[0].timeStamp);
+	var key = "timeStamp";
+	var array = result.map(a => a.timeStamp);
+	console.log("Array");
+	console.log(array);
+
+	var lastTransaction = Math.max.apply(Math,array);
+//	var lastTransaction = max(array);
+	console.log(lastTransaction) 
+	// console.log("end of getTransactions");
+	return lastTransaction;
+}
+
+function getLastDonationCharity(tx1, tx2, tx3, tx4) {
+	var list = [0,tx1,tx2,tx3,tx4];
+	return list.indexOf(Math.max.apply(Math,list));
+}
+
 
 function checkPending() {
 	var address1 = "0xc669d3A20F921713F16Bce59D4Ac0241047EC6b2";
@@ -34,6 +74,13 @@ function checkPending() {
 	result3 = checkPendingForAddress(address3);
 	result4 = checkPendingForAddress(address4);
 
+	if (result1 >= 1) {
+		lastDonationCharity = "Water.org";
+	}
+
+	if (result2 >= 1) {
+
+	}
 
 	var total = 0;
 	var results = [result1, result2, result3, result4]
@@ -81,7 +128,7 @@ function checkPendingForAddress(address) {
     		}
 //			console.log("result");
 //			console.log(result);
-//            console.log(result);
+//          console.log(result);
     	}
 	});
 //	console.log("checkPendingForAddresResult")
@@ -101,6 +148,25 @@ function updateChart() {
 		var balance2 = getResult(address2);
 		var balance3 = getResult(address3);
 		var balance4 = getResult(address4);
+
+		var tx1 = getTransactions(address1);
+		var tx2 = getTransactions(address2);
+		var tx3 = getTransactions(address3);
+		var tx4 = getTransactions(address4);
+		
+		var lastCharityIndex = getLastDonationCharity(tx1,tx2,tx3,tx4);
+		console.log("lastcharity");
+		console.log(lastCharityIndex);
+
+		if (lastCharityIndex == 1) {
+		  document.getElementById("last-donation-name").innerHTML = "Water.org";
+		} else if (lastCharityIndex ==2) {
+		  document.getElementById("last-donation-name").innerHTML = "UNICEF";
+		} else if (lastCharityIndex ==3) {
+		  document.getElementById("last-donation-name").innerHTML = "World Wildlife Fund";
+		} else if (lastCharityIndex ==4) {
+		  document.getElementById("last-donation-name").innerHTML = "Black Girls Code";
+		};
 
 		  // console.log("start");
 		  // console.log("balance1");
