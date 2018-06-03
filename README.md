@@ -1,5 +1,7 @@
 # wishingwell
 The Impact Summit Hackathon Project :)
+Three part project to make doing good a little easier.
+bit.ly/charityeth
 
 CSS Pie Chart Credits
 A Pen created at CodePen.io. You can find this one at https://codepen.io/FlyersPh9/pen/Bytpg.
