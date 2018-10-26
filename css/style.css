@@ -2,8 +2,9 @@ html, body {
 	margin: 0 auto;
 	padding: 0 auto;
 	font-family: Quicksand, sans-serif;
-	color: #ffffff;
-	background: #FF6C61;
+	color: #000;
+/*	background: #FF6C61; */
+	background: #A3A4A8;
 }
 
 p { margin: 0; padding: 4px; }
@@ -19,19 +20,20 @@ div {	margin: 0; padding: 0;}
 }
 
 #pending-container {
-	color: #ffffff;
+	color: #000;
 	font-size:20px;
 	font-weight: 800;
 	display: block;
 }
 
-#total-donated-container {
+#total-donations-container {
 	text-align: center;
 	font-size:50px;
+	font-weight:800;
 }
 
-#total-donated {
-	font-size:80px;
+#total-donations {
+	display: inline;
 }
 
 #pending-heart {
@@ -49,13 +51,10 @@ div {	margin: 0; padding: 0;}
 }
 
 #wrapper {
-	position:absolute;
 	top: 35%;
-	left: 50%;
-	width:740px;
+	width:1200px;
 	height:680px;
-	margin: -340px 0 0 -370px;
-	padding: 0;
+	margin: 0 auto;
 }
 
 /* Header start */
@@ -65,15 +64,32 @@ div {	margin: 0; padding: 0;}
 	padding: 15px 0 0px 0;
 }
 
-#txt_title {
-	color: #ffffff;
-	font-size: 34px;
+#txt-title {
+	color: #000;
+	font-size: 30px;
 	text-align:center;
     padding: 30px 0px 10px 0px;
 	text-shadow: 0 -1px 2px rgba(255,255,255,.5);
+	font-weight: 800;
 }
 
-#txt_subtitle {
+#txt-header {
+	color: #000;
+	font-size: 48px;
+	text-align:center;
+	text-shadow: 0 -1px 2px rgba(255,255,255,.5);
+	font-weight: 800;
+}
+
+#txt-sub-header {
+	color: #000;
+	font-size: 38px;
+	text-align:center;
+	text-shadow: 0 -1px 2px rgba(255,255,255,.5);
+	font-weight: 800;
+}
+
+#txt-subtitle {
 	font-size: 17px;
 	text-align: center;
 }
@@ -85,27 +101,23 @@ div {	margin: 0; padding: 0;}
 #last-donation-container {
     text-align: center;
     padding: 0px 0px 10px 0px;
-}
-
-#sentence-model {
-	font-size: 40px!important;
-	display:inline;
-}
-
-#total-donated {
-	font-size: 50px;
-	display:inline;
-	text-decoration:underline;
-	color: #ff0000;
-}
-
-#num-of-transactions {
-	font-size: 50px;
-	display:inline;
-	text-decoration:underline;
-	color: #ff0000;
+    font-size: 40px;
+	font-weight:800;
 }
 
 #dai-image {
+	display: inline;
+	height: 50px;
+}
+
+#ben-image {
+	display: inline;
+	height: 50px;
+}
+#header-image {
+	text-align:center;
+}
+
+#text {
 	display:inline;
 }

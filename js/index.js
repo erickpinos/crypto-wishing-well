@@ -285,7 +285,7 @@ function updateChart() {
 		console.log("txLast");
 		console.log(txLast);
 
- 		document.getElementById("total-donated").innerHTML = balance;
+ 		document.getElementById("total-donations").innerHTML = balance;
   		document.getElementById("last-donor-name").innerHTML = sender;
   		document.getElementById("num-of-transactions").innerHTML = numOfTransactions;
 }
