@@ -18,14 +18,23 @@ div {	margin: 0; padding: 0;}
 	width:90%!important;
 }
 
-#pendingStatus {
+#pending-container {
 	color: #ffffff;
-	height: 120px;
 	font-size:20px;
 	font-weight: 800;
+	display: block;
 }
 
-#pendingHeart {
+#total-donated-container {
+	text-align: center;
+	font-size:50px;
+}
+
+#total-donated {
+	font-size:80px;
+}
+
+#pending-heart {
   height: 100px;
 }
 
@@ -41,7 +50,7 @@ div {	margin: 0; padding: 0;}
 
 #wrapper {
 	position:absolute;
-	top: 50%;
+	top: 35%;
 	left: 50%;
 	width:740px;
 	height:680px;
@@ -76,4 +85,27 @@ div {	margin: 0; padding: 0;}
 #last-donation-container {
     text-align: center;
     padding: 0px 0px 10px 0px;
+}
+
+#sentence-model {
+	font-size: 40px!important;
+	display:inline;
+}
+
+#total-donated {
+	font-size: 50px;
+	display:inline;
+	text-decoration:underline;
+	color: #ff0000;
+}
+
+#num-of-transactions {
+	font-size: 50px;
+	display:inline;
+	text-decoration:underline;
+	color: #ff0000;
+}
+
+#dai-image {
+	display:inline;
 }
