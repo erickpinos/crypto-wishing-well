@@ -1,47 +1,30 @@
 #include <FastLED.h>
 #define NUM_LEDS 240
-#define DATA_PIN 3
 #define BRIGHTNESS 20
 #include <SoftwareSerial.h>
 
+#define DATA_PIN 2
+
+SoftwareSerial mySerial(10, 11); // RX, TX
 CRGB leds[NUM_LEDS];
 
 void setup() {
+
   // set the data rate for the SoftwareSerial port
-  FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);
-  resetStream();
 //  Serial.begin(9600);
+//  Serial.println("Hello, world?");
+  FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);
+    FastLED.setBrightness( BRIGHTNESS );
 }
 
 void loop() {
 //  Serial.begin(9600);
 //  Serial.println("Ready");
 //  Serial.end();
-//  uint8_t cmd_buffer[64];
-  // Tell the other side to send data
-//  Serial.println("OK");
-  // Read a pre-determined amount of data
-  //Serial.readBytes(cmd_buffer, 64);
-//  uint64_t IMAGE = 0;
-//  for (int i = 0; i < (sizeof(byte) * 8); i++) {
-//    IMAGE = (IMAGE << 8) + (cmd_buffer[i] & 0xff);
-//  }
-  // do stuff with the data
-  //int integer = int(cmd_buffer);
-  //Serial.println(integer);
-// if (letter == '1'){
-    stream(1);
-//  }
-//  else if(letter == '0') {
-//  }
-      // same assumption
-
-    // now do led stuff
-
-  // rest of loop
-  
-  delay(100);
-//  stream(5);
+//  delay(100);
+mySerial.println("Hello");
+//  FastLED.show();
+  stream(1);
 //  uint8_t cmd_buffer[64];
 //  Serial.println("OK");
 //  Serial.readBytes(cmd_buffer, 64);
@@ -67,12 +50,6 @@ void stream(int amount) {
       leds[index+i] = CRGB::Black;
     }
   }
-}
-
-void resetStream(){
-  for (int i = 0; i < 240; i++) {
-    leds[i] = CRGB::Black;
-}
 }
 
 void setColor(int dot, int color) {

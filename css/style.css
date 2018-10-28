@@ -28,7 +28,7 @@ div {	margin: 0; padding: 0;}
 
 #total-donations-container {
 	text-align: center;
-	font-size:50px;
+	font-size:80px;
 	font-weight:800;
 }
 
@@ -107,12 +107,12 @@ div {	margin: 0; padding: 0;}
 
 #dai-image {
 	display: inline;
-	height: 50px;
+	height: 70px;
 }
 
 #ben-image {
 	display: inline;
-	height: 50px;
+	height: 70px;
 }
 #header-image {
 	text-align:center;
