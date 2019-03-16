@@ -15,88 +15,59 @@
 
 	<div id="wrapper">
 	<div id="header">
-	<p id="txt_title">Crypto Wishing Well</p>
-	</div>
-
-	<div id="sentence-model">
-	<center>
-			<div id="total-donated"></div><div id="dai-image"><img src="images/dai.png" width="55px"></div> Donated
-	</center>
-	</div>
-
-
-	<div id="last-donation-container">
-		<div>Last Donation By:</div>
-		<div id="last-donor-name"></div>
-	</div>
-
-	<hr>
-
-	<div id="pending-container">
+	<p id="txt_title">Wishing Well <div id="total_ETH"></div> ETH Donated</p>
 		<center>
-			<div id="pending-message">Live Free & DAI Hard :)</div>
-			<img id="pending-heart" src="images/heart_loading.gif">
-			<div id><img src="images/dai.png" width="50px"></div>
+			<div id="chartContainer" style="width: 100%; height: 300px"></div>
 		</center>
 	</div>
-
-
-	<div id="total-donated-container">
-		<div>Total DAI Donated:</div>
-		<div id="total-donated"></div>
+	<div id="last-donation-container">
+		<div id>Most Recent Donation: <div id="last-donation-name"></div></div>
 	</div>
-
-
-
-<!--		<center>
-			<div id="chartContainer" style="width: 100%; height: 300px"></div>
-		</center>-->
-
-	<!--
-	<div id="leaderboard">
-		<table>
-			<tr>
-				<th id="rank_1">Address</th><th>Amount</th>
-			</tr>
-			<tr>
-				<th>Address</th><th>Amount</th>
-			</tr>
-			<tr>
-				<th>Address</th><th>Amount</th>
-			</tr>
-		</table>
+	<div id="pendingStatus">
+		<center>
+			<div id="pendingMessage">Ethereum Transaction Incoming!!!</div>
+			<img id="pendingHeart" src="image/heart_loading.gif">
+		</center>
 	</div>
-	</div>
-	-->
 	
-<!--	<table style="width:100%" id="table_title">
+	<table style="width:100%" id="table_title">
 		<tr>
     		<th style="width:25%">Water.org</th>
+   			<th style="width:25%">UNICEF</th> 
+   			<th style="width:25%">World Wildlife Fund</th>
+   			<th style="width:25%">Black Girls Code</th>
 		</tr>
 		<tr>
-			<th><img src="images/address1_qrcode.png" alt="Address 1" height="100" width="100"></th>
+			<th><img src="image/address1_qrcode.png" alt="Address 1" height="100" width="100"></th>
+			<th><img src="image/address2_qrcode.png" alt="Address 2" height="100" width="100"></th>
+			<th><img src="image/address3_qrcode.png" alt="Address 3" height="100" width="100"></th>
+			<th><img src="image/address4_qrcode.png" alt="Address 4" height="100" width="100"></th>
 		</tr>
 		<tr>
   			<th><input style="line-height: 20px; font-size: 20px; padding-bottom:-5px;" type="number" id="amount1" min="0.01" max="10" step="0.05" placeholder="0.05"></th>
+ 			<th><input style="line-height: 20px; font-size: 20px; padding-bottom:-5px;" type="number" id="amount2" min="0.01" max="10" step="0.05" placeholder="0.05"></th>
+		  	<th><input style="line-height: 20px; font-size: 20px; padding-bottom:-5px;" type="number" id="amount3" min="0.01" max="10" step="0.05" placeholder="0.05"></th>
+  			<th><input style="line-height: 20px; font-size: 20px; padding-bottom:-5px;" type="number" id="amount4" min="0.01" max="10" step="0.05" placeholder="0.05"></th>
 		</tr>
 		<tr>
 			<th><button class="pay-button" id = "pay-button2" onclick="donate1()"></button></th>
+			<th><button class="pay-button" id = "pay-button2" onclick="donate2()"></button></th>
+ 			<th><button class="pay-button" id = "pay-button3" onclick="donate3()"></button></th>
+    		<th><button class="pay-button" id = "pay-button4" onclick="donate4()"></button></th>
 		</tr>
 	</table>    
 	<br>
--->
-<!--	<a href="ethform.html">Charity Template</a>
+	<a href="ethform.html">Charity Template</a>
 	<br>
 	<a href="fountainsdemo.html">Fountains Demo</a>
 	<br>
--->
 </body>
 
 <script>
 	var address1 = "0xc669d3A20F921713F16Bce59D4Ac0241047EC6b2";
 	var address2 = "0xf73d1b277786819f38C5a7f6e88E9e4c249Fa1C6";
 	var address3 = "0x9E8cfEe0D8578E85Ab5b48f4239830213CDa983a";
-	var address4 = "0x2ed10bDd772B53E1f6be46Fbe0998327753FE158";
+	var address4 = "0x2ed10bDd772B53E1f6be46Fbe0998327753FE158"
 
 	var amount = null;
 
@@ -159,4 +130,6 @@
 	}
 
 </script>
+
+
 </html>
