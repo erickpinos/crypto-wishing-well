@@ -28,13 +28,12 @@ div {	margin: 0; padding: 0;}
 
 #total-donations-container {
 	text-align: center;
-	font-size:60px;
+	font-size:80px;
 	font-weight:800;
 }
 
 #total-donations {
 	display: inline;
-	font-size:100px;
 }
 
 #pending-heart {
@@ -52,7 +51,7 @@ div {	margin: 0; padding: 0;}
 }
 
 #wrapper {
-	top: 15%;
+	top: 35%;
 	width:1200px;
 	height:680px;
 	margin: 0 auto;
@@ -76,7 +75,7 @@ div {	margin: 0; padding: 0;}
 
 #txt-header {
 	color: #000;
-	font-size: 60px;
+	font-size: 48px;
 	text-align:center;
 	text-shadow: 0 -1px 2px rgba(255,255,255,.5);
 	font-weight: 800;
@@ -108,7 +107,7 @@ div {	margin: 0; padding: 0;}
 
 #dai-image {
 	display: inline;
-	height: 100px;
+	height: 70px;
 }
 
 #ben-image {
@@ -120,11 +119,6 @@ div {	margin: 0; padding: 0;}
 	height: 300px;
 }
 
-#text{
+#text {
 	display:inline;
-}
-
-#text-students{
-	font-size:40px;
-	text-align:center;
 }
