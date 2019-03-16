@@ -150,14 +150,14 @@ function checkPending() {
 	var pendingMessage = null;
 
 	if (result <= 0) {
-		pendingMessage = "Live Free & DAI Hard";
+		pendingMessage = "Live Free & DAI Hard :)";
 		$('#pending-heart').hide();
 	} else if (result == 1) {
 		pendingMessage = result + " DAI Transactions Incoming!!!";
-		$('#pending-heart').hide();
+		$('#pending-heart').show();
 	} else {
 		pendingMessage = result + " DAI Transactions Incoming!!!";		
-		$('#pending-heart').hide();
+		$('#pending-heart').show();
 	}
 	document.getElementById("pending-message").innerHTML = pendingMessage;
 }
@@ -286,8 +286,8 @@ function updateChart() {
 		console.log(txLast);
 
  		document.getElementById("total-donations").innerHTML = balance;
-//  		document.getElementById("last-donor-name").innerHTML = sender;
-//  		document.getElementById("num-of-transactions").innerHTML = numOfTransactions;
+  		document.getElementById("last-donor-name").innerHTML = sender;
+  		document.getElementById("num-of-transactions").innerHTML = numOfTransactions;
 }
 
 

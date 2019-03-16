@@ -1,63 +1,62 @@
 #include <FastLED.h>
 #define NUM_LEDS 240
-#define DATA_PIN 3
+#define DATA_PIN 6
 #define BRIGHTNESS 20
-#include <SoftwareSerial.h>
 
 CRGB leds[NUM_LEDS];
 
-void setup() {
-  // set the data rate for the SoftwareSerial port
-  FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);
-  resetStream();
-//  Serial.begin(9600);
-}
+int inPin = 2;
+int ledPin =  13;
+int val = 0;
 
-void loop() {
+void setup() {
 //  Serial.begin(9600);
 //  Serial.println("Ready");
-//  Serial.end();
-//  uint8_t cmd_buffer[64];
-  // Tell the other side to send data
-//  Serial.println("OK");
-  // Read a pre-determined amount of data
-  //Serial.readBytes(cmd_buffer, 64);
-//  uint64_t IMAGE = 0;
-//  for (int i = 0; i < (sizeof(byte) * 8); i++) {
-//    IMAGE = (IMAGE << 8) + (cmd_buffer[i] & 0xff);
-//  }
-  // do stuff with the data
-  //int integer = int(cmd_buffer);
-  //Serial.println(integer);
-// if (letter == '1'){
-    stream(1);
-//  }
-//  else if(letter == '0') {
-//  }
-      // same assumption
-
-    // now do led stuff
-
-  // rest of loop
-  
-  delay(100);
-//  stream(5);
-//  uint8_t cmd_buffer[64];
-//  Serial.println("OK");
-//  Serial.readBytes(cmd_buffer, 64);
-  
+//  FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);
+  pinMode(inPin, INPUT);
+  pinMode(ledPin, OUTPUT);
 }
+int buttonClick = 0;
 
-void testStream() {
-  int amounts[1];
-  amounts[0] = 1;
-  for (int i = 0; i < 1; i++) {
-    stream(amounts[i]);
+void loop() {
+  val = digitalRead(inPin);
+  if (val == LOW) {
+    digitalWrite(ledPin, HIGH);
+  } else {
+    digitalWrite(ledPin, LOW);
   }
+
+//  resetStrip();
+//  Serial.println("resetStrip");
+
+  if (buttonClick == 1) {
+//     stream(5);
+  }
+//    char inByte = ' ';
+//  if (Serial.available()) {
+//    inByte = Serial.read();
+//    Serial.println(inByte);
+//    amounts[0] = inByte;
+//  }
+    
+//  int amounts[1];
+//  amounts[0] = 1;
+//  for (int i = 0; i < 1; i++) {
+//    stream(amounts[i]);
+//  }
+}
+int count = 0;
+
+void resetStrip() {
+  for (int i = 0; i < NUM_LEDS; i++) {
+    leds[i] = CRGB::Black;
+  }
+  FastLED.show();
 }
 
 void stream(int amount) {
-  for (int index = 0; index < NUM_LEDS; index++) {
+  if (buttonClick == 1) {
+  for (int index = 0; index < 200; index++) {
     for (int i = 0; i < amount; i++) {
       setColor(index+i, amount);
     }
@@ -66,13 +65,10 @@ void stream(int amount) {
     for (int i = 0; i < amount; i++) {
       leds[index+i] = CRGB::Black;
     }
+    FastLED.show();
   }
-}
-
-void resetStream(){
-  for (int i = 0; i < 240; i++) {
-    leds[i] = CRGB::Black;
-}
+  }
+  buttonClick = 0;
 }
 
 void setColor(int dot, int color) {
