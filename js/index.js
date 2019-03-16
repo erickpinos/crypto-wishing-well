@@ -1,4 +1,4 @@
-var destination = "0xadff6699b5eece3f4e6d476ea8e427d386841002";
+var destination = "0xadff6699b5eece3f4e6d476ea8e427d38684100";
 var balance1 = 0;
 var lastDonationCharity = null;
 var network = "api";
